@@ -17,7 +17,7 @@ describe Game do
     end
   end
 
-  context 'mediocre' do
+  context 'mediocre game' do
     let(:rolls) { [3] * 20 }
     it 'returns a score of 60' do
       rolls.each do |r| 
