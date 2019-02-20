@@ -1,5 +1,4 @@
 require 'game'
-require 'game'
 
 describe Game do
   subject(:game) { described_class.new }
@@ -34,6 +33,16 @@ describe Game do
         game.roll(r)
       end
       expect(game.score).to eq(133)
+    end
+  end
+
+  describe '#roll' do 
+    context 'first roll' do
+      it 'creates an incomplete frame' do
+        game.roll(4)
+        expect(game.frames.count).to eq(1)
+        expect(game.frames.last.completed?).to eq(false)
+      end
     end
   end
 end

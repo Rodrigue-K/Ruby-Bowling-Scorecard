@@ -1,14 +1,24 @@
+require 'frame'
+
 class Game
+  attr_reader :frames
   
   def initialize
-    @rolls = []
+    @frames = []
   end
 
   def roll(n)
-    @rolls.push(n)
+    frame = @frames.last
+
+    if frame.nil? || frame.completed?
+      frame = Frame.new
+      @frames.push(frame)
+    end
+
+    frame.roll(n)
   end 
 
   def score
-    @rolls.reduce(:+)
+    @frame.score
   end
 end

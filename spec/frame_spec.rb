@@ -29,5 +29,25 @@ describe Frame do
         expect(frame.completed?).to eq(true)
       end 
     end
+
+    context "for a regular frame" do 
+      before do
+        frame.roll(2)
+        frame.roll(3)
+      end
+
+      it "returns true" do
+        expect(frame.completed?).to eq(true)
+      end
+    end
+    context "for an incomplete frame" do
+      before do
+        frame.roll(1)
+      end
+
+      it "returns false" do
+        expect(frame.completed?).to eq(false)
+      end
+    end
   end
 end
