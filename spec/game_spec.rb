@@ -40,8 +40,8 @@ describe Game do
     context 'first roll' do
       it 'creates an incomplete frame' do
         game.roll(4)
-        expect(game.frames.count).to eq(1)
-        expect(game.frames.last.completed?).to eq(false)
+        expect(game.current_frame).to_not be_nil
+        expect(game.current_frame).to_not be_completed
       end
     end
   end
