@@ -12,8 +12,10 @@ class Game
   end 
 
   def score
-    @frame.score
+    @frames.reduce(0) { |memo, frame| memo + frame.score  }
   end
+
+  private
 
   def current_frame
     frame = @frames.last
@@ -22,7 +24,7 @@ class Game
       frame = Frame.new
       @frames.push(frame)
     end
-    
+
     frame
   end
 

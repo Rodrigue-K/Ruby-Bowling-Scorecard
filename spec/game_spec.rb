@@ -36,12 +36,30 @@ describe Game do
     end
   end
 
-  describe '#roll' do 
-    context 'first roll' do
-      it 'creates an incomplete frame' do
-        game.roll(4)
-        expect(game.current_frame).to_not be_nil
-        expect(game.current_frame).to_not be_completed
+  describe "#completed?" do
+    context "for a strike in the 10th frame" do
+      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,10] }
+
+      before do
+        rolls.each { |r| game.roll(r) }
+      end
+
+      it "returns false" do  
+        expect(game.completed?).to be false
+      end
+
+      it "returns true after playing the bonus rolls" do
+        [10,10].each { |r| game.roll(r) }
+        expect(game.completed?).to be true
+      end
+    end
+
+    context "for a spare in the 10th frame" do
+      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,5,5] }
+
+      it "returns false" do
+        rolls.each { |r| game.roll(r) }
+        expect(game.completed?).to be false
       end
     end
   end
