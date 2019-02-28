@@ -1,4 +1,4 @@
-require 'frame'
+require_relative 'frame'
 
 class Game
   attr_reader :frames
@@ -13,6 +13,10 @@ class Game
 
   def score
     @frames.reduce(0) { |memo, frame| memo + frame.score  }
+  end
+
+  def completed?
+    @frames.count == 10 && @frames.last.completed? && @frames.last.score < 10 
   end
 
   private

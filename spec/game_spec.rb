@@ -62,5 +62,23 @@ describe Game do
         expect(game.completed?).to be false
       end
     end
+
+    context "for a completed game" do
+      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0] }
+
+      it "returns true" do
+        rolls.each { |r| game.roll(r) }
+        expect(game.completed?).to be true
+      end
+    end        
+
+    context "for an incomplete game" do
+      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1] }
+
+      it "returns false" do
+        rolls.each { |r| game.roll(r) }
+        expect(game.completed?).to be false
+      end
+    end        
   end
 end
