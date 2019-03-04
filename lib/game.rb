@@ -1,11 +1,11 @@
 require_relative 'frame'
 
 class Game
-  attr_reader :frames, :count
+  attr_reader :frames, :frame_counter
   
   def initialize
     @frames = []
-    @count = 0
+    @frame_counter = 0
   end
 
   def roll(n)
@@ -26,8 +26,8 @@ class Game
     frame = @frames.last
 
     if frame.nil? || frame.completed?
-      @count += 1
-      frame = Frame.new(@count)
+      @frame_counter += 1 
+      frame = Frame.new(@frame_counter)
       @frames.push(frame)
     end
 
