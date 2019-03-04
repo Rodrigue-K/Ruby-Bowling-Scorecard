@@ -12,6 +12,7 @@ GEM
     faraday_middleware (0.13.0)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.10.0)
+    ffi (1.10.0-x64-mingw32)
     gh (0.15.1)
       addressable (~> 2.4.0)
       backports
@@ -74,6 +75,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   rspec
