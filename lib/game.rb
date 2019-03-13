@@ -13,7 +13,7 @@ class Game
   end 
 
   def score
-    @frames.reduce(0) { |memo, frame| memo + frame.score  }
+    @frames.sum(&:score)
   end
 
   def completed?
