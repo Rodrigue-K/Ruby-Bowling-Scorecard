@@ -2,6 +2,7 @@ require 'game'
 
 describe Game do
   subject(:game) { described_class.new }
+  describe '#score' do
   context 'Gutter game' do
     it 'returns a score of 0' do 
       20.times { game.roll(0) }
@@ -35,50 +36,48 @@ describe Game do
       expect(game.score).to eq(133)
     end
   end
+end 
 
-  describe "#completed?" do
-    context "for a strike in the 10th frame" do
-      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,10] }
-
-      before do
-        rolls.each { |r| game.roll(r) }
-      end
-
-      it "returns false" do  
-        expect(game.completed?).to be false
-      end
-
-      it "returns true after playing the bonus rolls" do
-        [10,10].each { |r| game.roll(r) }
-        expect(game.completed?).to be true
-      end
+describe "#completed?" do
+  context "for a strike in the 10th frame" do
+    let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,10] }
+    before do
+      rolls.each { |r| game.roll(r) }
     end
 
-    context "for a spare in the 10th frame" do
-      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,5,5] }
-
-      it "returns false" do
-        rolls.each { |r| game.roll(r) }
-        expect(game.completed?).to be false
-      end
+    it "returns false" do  
+      expect(game.completed?).to be false
     end
-
-    context "for a completed game" do
-      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0] }
-
-      it "returns true" do
-        rolls.each { |r| game.roll(r) }
-        expect(game.completed?).to be true
-      end
-    end        
-
-    context "for an incomplete game" do
-      let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1] }
-
-      it "returns false" do
-        rolls.each { |r| game.roll(r) }
-        expect(game.completed?).to be false
-      end
-    end        
+    
+    it "returns true after playing the bonus rolls" do
+      [10,10].each { |r| game.roll(r) }
+      expect(game.completed?).to be true
+    end
   end
+  
+  context "for a spare in the 10th frame" do
+    let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,5,5] }
+    it "returns false" do
+      rolls.each { |r| game.roll(r) }
+      expect(game.completed?).to be false
+    end
+  end
+  
+  context "for a completed game" do
+    let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0] }
+    
+    it "returns true" do
+      rolls.each { |r| game.roll(r) }
+      expect(game.completed?).to be true
+    end
+  end        
+  
+  context "for an incomplete game" do
+    let(:rolls) { [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1] }
+    it "returns false" do
+      rolls.each { |r| game.roll(r) }
+      expect(game.completed?).to be false
+    end
+  end        
+end
 end

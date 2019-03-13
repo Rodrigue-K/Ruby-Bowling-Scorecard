@@ -21,7 +21,25 @@ describe Frame do
       frame.roll(10)
       expect(frame.strike?).to eq(true)
     end
+    it "returns false when not a strike" do 
+      frame.roll(4)
+      expect(frame.strike?).to eq(false)
+    end 
   end 
+
+  describe "#spare?" do 
+    it "returns true for a spare" do 
+      frame.roll(6)
+      frame.roll(4)
+      expect(frame.spare?).to eq(true)
+    end
+    it "returns false when not a strike" do 
+      frame.roll(4)
+      frame.roll(4)
+      expect(frame.spare?).to eq(false)
+    end 
+  end 
+  
 
   describe "#completed?" do 
     context "for a strike" do
