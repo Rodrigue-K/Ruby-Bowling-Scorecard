@@ -16,6 +16,13 @@ describe Frame do
     end
   end 
 
+  describe "#stike?" do 
+    it "returns true for a strike" do 
+      frame.roll(10)
+      expect(frame.strike?).to eq(true)
+    end
+  end 
+
   describe "#completed?" do 
     context "for a strike" do
       before { frame.roll(10) }

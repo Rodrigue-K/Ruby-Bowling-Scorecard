@@ -19,9 +19,9 @@ class Frame
     rolls.length == 1 && score == 10
   end
 
-  def spare?
-    rolls.length == 2 && score == 10
-  end
+  # def spare?
+  #   rolls.length == 2 && score == 10
+  # end
 
   def completed?
     if @number < 10 
