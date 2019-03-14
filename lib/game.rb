@@ -13,6 +13,11 @@ class Game
   end 
 
   def score
+    total = 0
+    case @frames.last
+    when srike?
+      @frames.last.sum(&:score)
+
     @frames.sum(&:score)
   end
 
