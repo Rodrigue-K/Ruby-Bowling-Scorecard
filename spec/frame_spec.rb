@@ -28,7 +28,7 @@ describe Frame do
   end 
 
   describe "#spare?" do 
-    it "returns true for a spare" do 
+    it "returns true for when a  spare" do 
       frame.roll(6)
       frame.roll(4)
       expect(frame.spare?).to eq(true)

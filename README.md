@@ -61,4 +61,9 @@ In the image below you can find some score examples.
 
 More about ten pin bowling here: http://en.wikipedia.org/wiki/Ten-pin_bowling
 
+<<<<<<< HEAD
 ![Ten Pin Score Example](images/example_ten_pin_scoring.png)
+=======
+![Ten Pin Score Example](images/example_ten_pin_scoring.png)
+
+>>>>>>> e7e7c4e3accbf37a41f7f43253748b2aaa5d0790
