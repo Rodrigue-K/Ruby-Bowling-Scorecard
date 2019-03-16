@@ -21,7 +21,7 @@ class Game
         bonus_total += @history[frame.number + 1]
         bonus_total += @history[frame.number + 2]
       elsif frame.spare?
-        bonus_total += @history[frame.number + 3]
+        bonus_total += @history[frame.number + 1]
         @history
       end
     end
