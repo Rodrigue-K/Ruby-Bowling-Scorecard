@@ -7,8 +7,8 @@ class Frame
     @number = number
   end
 
-  def roll(n)
-    @rolls << n
+  def roll(number_rolled)
+    @rolls << number_rolled
   end 
 
   def score
