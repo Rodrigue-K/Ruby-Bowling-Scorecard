@@ -18,10 +18,10 @@ class Game
     bonus_total = 0 
     @frames.each do |frame|
       if frame.strike?
-        bonus_total += @history[frame.number + 1]
-        bonus_total += @history[frame.number + 2]
+       bonus_total += @history[frame.number + 2]
+      #  bonus_total += @history[frame.number + 2]
       elsif frame.spare?
-        bonus_total += @history[frame.number + 1]
+      #  p bonus_total += @history[frame.number + 3]
         @history
       end
     end
@@ -32,11 +32,6 @@ class Game
     @frames.count == 10 && @frames.last.completed?
   end
 
-  def get_next_frame(frame)
-    if frame.number < @frames.length 
-      @frames[frame.number]
-    end
-  end
 
   private
 
@@ -48,7 +43,6 @@ class Game
       frame = Frame.new(@frame_counter)
       @frames.push(frame)
     end
-
     frame
   end
 

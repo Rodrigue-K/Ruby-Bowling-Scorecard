@@ -28,7 +28,7 @@ describe Game do
     end
 
     context 'mixed bag' do
-      let(:rolls) { [1, 4, 4, 5, 6, 4, 5, 5, 10, 0, 1, 7, 3, 6, 4, 10, 2, 8, 6, 4] }
+      let(:rolls) { [1, 4, 4, 5, 6, 4, 5, 5, 10, 0, 1, 7, 3, 6, 4, 10, 2, 8, 6] }
       it 'returns a score of 133' do
         rolls.each do |r| 
           game.roll(r)
