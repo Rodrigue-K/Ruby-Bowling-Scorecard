@@ -18,7 +18,7 @@ class Game
     bonus_total = 0 
     @frames.each do |frame|
       if frame.strike?
-       bonus_total += @history[frame.number + 2]
+        bonus_total += @history[frame.number + 2]
       #  bonus_total += @history[frame.number + 2]
       elsif frame.spare?
       #  p bonus_total += @history[frame.number + 3]
@@ -31,7 +31,6 @@ class Game
   def completed?
     @frames.count == 10 && @frames.last.completed?
   end
-
 
   private
 
